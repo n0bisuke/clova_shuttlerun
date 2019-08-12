@@ -6,13 +6,13 @@ const express = require('express');
 
 const app = new express();
 const port = process.env.PORT || 1880;
-let audioPath = '';
+let audioPath = 'https://n0bisuke.github.io/clova_shuttlerun/static/audio/shuttlerun.mp3';
 
 app.use(express.static('static'));
-app.use((req, res, next) => {
-    audioPath = `https://${req.headers.host}/audio/shuttlerun.mp3`;
-    next();
-});
+// app.use((req, res, next) => {
+//     audioPath = `https://${req.headers.host}/audio/shuttlerun.mp3`;
+//     next();
+// });
 
 //EXTENSION IDとLINE ACCESS TOKEN
 const clovaMiddleware = clova.Middleware({applicationId: process.env.LBA_SHUTTLERUN_CLOVA});
